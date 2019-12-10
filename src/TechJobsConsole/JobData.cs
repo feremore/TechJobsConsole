@@ -68,7 +68,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Contains(value))
+                if (aValue.Equals(value,System.StringComparison.OrdinalIgnoreCase))
                 {
                     jobs.Add(row);
                 }
