@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Linq;
 
 namespace TechJobsConsole
 {
@@ -10,6 +11,24 @@ namespace TechJobsConsole
         static List<Dictionary<string, string>> AllJobs = new List<Dictionary<string, string>>();
         static bool IsDataLoaded = false;
 
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            List<Dictionary<string, string>> valueList = new List<Dictionary<string, string>>();
+            LoadData();
+            
+            foreach(Dictionary<string, string> row in AllJobs)
+            {
+                foreach (KeyValuePair<string, string> kvp in row)
+                {
+                    if ((kvp.Value).Equals(value, System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        valueList.Add(row);
+                        
+                    }
+                }
+            }
+            return valueList;
+        }
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
