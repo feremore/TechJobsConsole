@@ -20,7 +20,7 @@ namespace TechJobsConsole
             {
                 foreach (KeyValuePair<string, string> kvp in row)
                 {
-                    if ((kvp.Value).Equals(value, System.StringComparison.OrdinalIgnoreCase))
+                    if (kvp.Value.ToLower().Contains(value.ToLower()))
                     {
                         valueList.Add(row);
                         
@@ -68,7 +68,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Equals(value,System.StringComparison.OrdinalIgnoreCase))
+                if (aValue.ToLower().Contains(value.ToLower()))
                 {
                     jobs.Add(row);
                 }

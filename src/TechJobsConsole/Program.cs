@@ -124,8 +124,7 @@ namespace TechJobsConsole
                 foreach (KeyValuePair<string, string> kvp in row)
                 {
                     
-                    Console.WriteLine("{0}: {1}",
-                        kvp.Key, kvp.Value);
+                    Console.WriteLine("{0}: {1}", kvp.Key, kvp.Value);
                 }
                 Console.WriteLine("*****");
             }
