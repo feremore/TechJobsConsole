@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TechJobsConsole
 {
@@ -118,15 +119,23 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            foreach(Dictionary<string,string> row in someJobs)
+            if (someJobs.Any())
             {
-                
-                foreach (KeyValuePair<string, string> kvp in row)
+
+                foreach (Dictionary<string, string> row in someJobs)
                 {
-                    
-                    Console.WriteLine("{0}: {1}", kvp.Key, kvp.Value);
+
+                    foreach (KeyValuePair<string, string> kvp in row)
+                    {
+
+                        Console.WriteLine("{0}: {1}", kvp.Key, kvp.Value);
+                    }
+                    Console.WriteLine("*****");
                 }
-                Console.WriteLine("*****");
+            }
+            else
+            {
+                Console.WriteLine("No results");
             }
         }
     }
